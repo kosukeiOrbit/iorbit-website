@@ -282,7 +282,7 @@ export default function ContactPage() {
                     <span className="text-primary-600 text-xl">📧</span>
                     <div>
                       <p className="font-medium text-secondary-900">メール</p>
-                      <p className="text-secondary-600">info@iorbit.co.jp</p>
+                      <p className="text-secondary-600">info@iorbit.jp</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">

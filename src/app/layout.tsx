@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://iorbit.co.jp'),
+  metadataBase: new URL('https://iorbit.jp'),
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://iorbit.co.jp',
+    url: 'https://iorbit.jp',
     title: '株式会社iOrbit | システム開発・アプリ開発',
     description: '株式会社iOrbitは、Windowsアプリ、WEBアプリ、スマホアプリの受託開発を行うシステム開発会社です。',
     siteName: '株式会社iOrbit',

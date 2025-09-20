@@ -13,16 +13,17 @@ const companyInfo = {
   employees: '2名',
   address: '〒581-0003 大阪府八尾市本町６－１４－１５',
   phone: 'お問い合わせフォームをご利用ください',
-  email: 'info@iorbit.co.jp',
+  email: 'info@iorbit.jp',
+  website: 'https://iorbit.jp',
   business: 'システム開発・アプリ開発・組み込み開発・IT コンサルティング',
 }
 
 const representative = {
   name: '代表取締役 高橋宏輔',
   profile: `
-    2009年に大学でコンピュータサイエンスを専攻し卒業後、大手Sierに就職。
-    15年以上のソフトウェア開発経験を積み、特にWebアプリケーション開発とスマホアプリ開発を
-    得意分野として、React、Next.js、Flutter、React Nativeなどの最新技術に精通。
+    大学卒業後、大手Sierに就職し、15年以上のソフトウェア開発経験を積み重ねる。
+    特にWebアプリケーション開発とスマホアプリ開発を得意分野として、
+    React、Next.js、Flutter、React Nativeなどの最新技術に精通。
 
     照明制御、複合機制御、ETC連携システム、入退場ゲート制御などの組み込みシステム開発から、
     モダンなWebプラットフォーム、モバイルアプリまで、30以上のプロジェクトを成功に導いた
@@ -89,6 +90,11 @@ const milestones = [
     year: '2024年6月',
     event: 'AI技術導入',
     description: 'AIトレードbot研究開発プロジェクト開始',
+  },
+  {
+    year: '2025年9月',
+    event: '企業サイトリニューアル',
+    description: 'モダンなデザインと技術スタックでウェブサイトを全面刷新',
   },
 ]
 
@@ -215,6 +221,16 @@ export default function AboutPage() {
                       <h3 className="font-bold text-secondary-900">メールアドレス</h3>
                     </div>
                     <p className="text-secondary-700 font-medium">{companyInfo.email}</p>
+                  </div>
+
+                  <div className="card-premium">
+                    <div className="flex items-center mb-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
+                        <span className="text-white text-lg">🌐</span>
+                      </div>
+                      <h3 className="font-bold text-secondary-900">ウェブサイト</h3>
+                    </div>
+                    <p className="text-secondary-700 font-medium">{companyInfo.website}</p>
                   </div>
                 </div>
 

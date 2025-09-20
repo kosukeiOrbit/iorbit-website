@@ -1,0 +1,14 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circle background -->
+  <circle cx="24" cy="24" r="20" fill="url(#iconGrad)"/>
+
+  <!-- "i" text -->
+  <text x="24" y="32" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">i</text>
+</svg>

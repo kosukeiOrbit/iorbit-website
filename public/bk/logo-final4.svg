@@ -1,0 +1,35 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="moleculeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="50%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 'i' のドット -->
+  <circle cx="12" cy="12" r="2.5" fill="url(#moleculeGrad)"/>
+
+  <!-- 'i' の縦線 -->
+  <rect x="10.5" y="17" width="3" height="14" rx="1.5" fill="url(#moleculeGrad)"/>
+
+  <!-- 分子結合線 -->
+  <line x1="19" y1="20" x2="31" y2="20" stroke="url(#moleculeGrad)" stroke-width="1.5" opacity="0.6"/>
+  <line x1="25" y1="14" x2="25" y2="26" stroke="url(#moleculeGrad)" stroke-width="1" opacity="0.4"/>
+
+  <!-- 中央原子 -->
+  <circle cx="25" cy="20" r="2.5" fill="url(#moleculeGrad)"/>
+
+  <!-- 軌道電子 -->
+  <circle cx="19" cy="20" r="1.5" fill="#f59e0b"/>
+  <circle cx="31" cy="20" r="1.5" fill="#f59e0b"/>
+  <circle cx="25" cy="14" r="1.2" fill="#f97316"/>
+  <circle cx="25" cy="26" r="1.2" fill="#f97316"/>
+
+  <!-- 軌道線 -->
+  <ellipse cx="25" cy="20" rx="6" ry="3" fill="none" stroke="url(#moleculeGrad)" stroke-width="1" stroke-dasharray="2,1" opacity="0.5"/>
+
+  <!-- テキスト -->
+  <text x="44" y="18" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="url(#moleculeGrad)">iOrbit</text>
+  <text x="44" y="30" font-family="Inter, sans-serif" font-size="8" font-weight="500" fill="#64748B">TECHNOLOGY</text>
+</svg>

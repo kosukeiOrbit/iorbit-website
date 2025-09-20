@@ -1,0 +1,35 @@
+<svg width="120" height="36" viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Central "i" -->
+  <text x="16" y="24" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="url(#logoGradient)" text-anchor="middle">i</text>
+
+  <!-- Static dashed orbital ring -->
+  <g transform="translate(16, 18)">
+    <circle r="12" fill="none" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.8"/>
+
+    <!-- Orbiting celestial body -->
+    <g>
+      <circle cx="12" cy="0" r="1.5" fill="#F59E0B"/>
+      <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        from="0"
+        to="360"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </g>
+  </g>
+
+  <!-- "iOrbit" text -->
+  <text x="35" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="url(#logoGradient)">iOrbit</text>
+
+  <!-- "TECHNOLOGY" text -->
+  <text x="35" y="28" font-family="Arial, sans-serif" font-size="6" font-weight="400" fill="#64748B" letter-spacing="0.5px">TECHNOLOGY</text>
+</svg>

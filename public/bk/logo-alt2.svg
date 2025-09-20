@@ -1,0 +1,33 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 六角形のベース -->
+  <polygon points="30,10 40,15 40,25 30,30 20,25 20,15" fill="url(#grad2)" opacity="0.8"/>
+
+  <!-- 内部の回路パターン -->
+  <circle cx="25" cy="17" r="2" fill="white"/>
+  <circle cx="35" cy="23" r="2" fill="white"/>
+  <line x1="25" y1="17" x2="35" y2="23" stroke="white" stroke-width="1"/>
+
+  <!-- 軌道を表す円弧 -->
+  <path d="M 15 20 Q 30 5 45 20" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+  <path d="M 15 20 Q 30 35 45 20" fill="none" stroke="url(#grad2)" stroke-width="2"/>
+
+  <!-- 軌道上の点 -->
+  <circle cx="15" cy="20" r="2" fill="url(#grad2)"/>
+  <circle cx="45" cy="20" r="2" fill="url(#grad2)"/>
+
+  <!-- テキスト部分 -->
+  <text x="60" y="22" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#0F172A">
+    iOrbit
+  </text>
+  <text x="60" y="38" font-family="Arial, sans-serif" font-size="9" fill="#475569">
+    Technology Solutions
+  </text>
+</svg>

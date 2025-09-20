@@ -1,0 +1,41 @@
+{
+  "name": "iorbit-website",
+  "version": "0.1.0",
+  "description": "株式会社iOrbit公式ウェブサイト",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
+  },
+  "keywords": [
+    "iOrbit",
+    "システム開発",
+    "Webアプリ",
+    "スマホアプリ",
+    "受託開発",
+    "Next.js",
+    "TypeScript"
+  ],
+  "author": "株式会社iOrbit",
+  "license": "MIT"
+}

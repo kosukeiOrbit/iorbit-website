@@ -1,0 +1,46 @@
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Clean White Background -->
+  <rect width="350" height="200" fill="#ffffff"/>
+
+  <!-- Company Name Centered -->
+  <g transform="translate(175, 50)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="url(#blueGrad)" text-anchor="middle">株式会社iOrbit</text>
+  </g>
+
+  <!-- Address Section -->
+  <g transform="translate(175, 90)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#374151" text-anchor="middle">〒581-0003</text>
+    <text x="0" y="18" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#374151" text-anchor="middle">大阪府八尾市本町６－１４－１５</text>
+  </g>
+
+  <!-- Website -->
+  <g transform="translate(175, 130)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="14" fill="url(#blueGrad)" text-anchor="middle" font-weight="500">https://iorbit.jp</text>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(175, 160)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Premium Technology Partner</text>
+  </g>
+
+  <!-- Decorative Orbital Elements at Corners -->
+  <g transform="translate(50, 50)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="url(#blueGrad)" stroke-width="1" stroke-dasharray="2,1" opacity="0.3"/>
+    <circle cx="0" cy="0" r="2" fill="url(#blueGrad)" opacity="0.5"/>
+  </g>
+
+  <g transform="translate(300, 150)">
+    <circle cx="0" cy="0" r="10" fill="none" stroke="url(#blueGrad)" stroke-width="1" stroke-dasharray="3,2" opacity="0.3"/>
+    <circle cx="0" cy="0" r="2" fill="#f59e0b" opacity="0.7"/>
+  </g>
+
+  <!-- Clean Border -->
+  <rect x="10" y="10" width="330" height="180" fill="none" stroke="#f3f4f6" stroke-width="1" rx="10"/>
+</svg>

@@ -1,0 +1,66 @@
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Clean White Background -->
+  <rect width="350" height="200" fill="#ffffff"/>
+
+  <!-- iOrbit Logo (Scaled) -->
+  <g transform="translate(40, 40) scale(1.5)">
+    <!-- 'i' のドット -->
+    <circle cx="12" cy="12" r="2.5" fill="url(#blueGrad)" filter="url(#softGlow)"/>
+
+    <!-- 'i' の縦線 -->
+    <rect x="10.5" y="17" width="3" height="14" rx="1.5" fill="url(#blueGrad)" filter="url(#softGlow)"/>
+
+    <!-- 'O' - 軌道リング（点線） -->
+    <circle cx="28" cy="21" r="10" fill="none" stroke="url(#blueGrad)" stroke-width="2" stroke-dasharray="4,2" opacity="0.8"/>
+
+    <!-- 中央の核 -->
+    <circle cx="28" cy="21" r="2.5" fill="url(#blueGrad)"/>
+
+    <!-- 軌道上の天体 -->
+    <circle cx="38" cy="21" r="1.5" fill="#f59e0b"/>
+
+    <!-- 装飾的な小さな軌道 -->
+    <circle cx="28" cy="21" r="6" fill="none" stroke="url(#blueGrad)" stroke-width="1" stroke-dasharray="2,3" opacity="0.4"/>
+
+    <!-- テキスト部分 -->
+    <text x="44" y="20" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="url(#blueGrad)">
+      iOrbit
+    </text>
+    <text x="44" y="32" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="500" fill="#64748B">
+      TECHNOLOGY
+    </text>
+  </g>
+
+  <!-- Name Section -->
+  <g transform="translate(40, 120)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" fill="#1f2937">高橋 宏輔</text>
+    <text x="0" y="20" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b7280">代表取締役</text>
+    <text x="0" y="35" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b7280">Representative Director</text>
+  </g>
+
+  <!-- Contact Section -->
+  <g transform="translate(200, 120)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#3B82F6" font-weight="500">info@iorbit.jp</text>
+    <text x="0" y="20" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#3B82F6" font-weight="500">https://iorbit.jp</text>
+  </g>
+
+  <!-- Simple Blue Line -->
+  <line x1="40" y1="110" x2="310" y2="110" stroke="url(#blueGrad)" stroke-width="2"/>
+
+  <!-- Subtle Border -->
+  <rect x="10" y="10" width="330" height="180" fill="none" stroke="#e5e7eb" stroke-width="1" rx="5"/>
+</svg>

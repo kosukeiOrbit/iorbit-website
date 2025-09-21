@@ -1,0 +1,30 @@
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1d4ed8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="orbitalPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Gradient -->
+  <rect width="350" height="200" fill="url(#bgGrad)"/>
+  <rect width="350" height="200" fill="url(#orbitalPattern)"/>
+
+  <!-- iOrbit Logo (White) -->
+  <g transform="translate(30, 40)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">iOrbit</text>
+    <circle cx="90" cy="-10" r="10" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,1" opacity="0.9"/>
+  </g>
+
+  <!-- Name -->
+  <text x="30" y="90" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">高橋 宏輔</text>
+  <text x="30" y="110" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">Kosuke Takahashi</text>
+  <text x="30" y="130" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">Representative Director</text>
+
+  <!-- Contact -->
+  <text x="30" y="165" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b">info@iorbit.jp</text>
+</svg>

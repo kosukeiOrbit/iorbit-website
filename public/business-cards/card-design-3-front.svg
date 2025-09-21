@@ -1,0 +1,24 @@
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="350" height="200" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+
+  <!-- Top Border -->
+  <rect x="0" y="0" width="350" height="3" fill="#2563eb"/>
+
+  <!-- Company Name (Centered) -->
+  <text x="175" y="40" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937" text-anchor="middle">株式会社iOrbit</text>
+
+  <!-- Name -->
+  <text x="30" y="80" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1f2937">高橋 宏輔</text>
+  <text x="30" y="100" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">代表取締役</text>
+
+  <!-- Contact with icons -->
+  <text x="30" y="130" font-family="Arial, sans-serif" font-size="11" fill="#4b5563">📧 info@iorbit.jp</text>
+  <text x="30" y="150" font-family="Arial, sans-serif" font-size="11" fill="#4b5563">🌐 https://iorbit.jp</text>
+  <text x="30" y="170" font-family="Arial, sans-serif" font-size="11" fill="#4b5563">📍 大阪府八尾市</text>
+
+  <!-- Subtle decoration -->
+  <circle cx="300" cy="50" r="2" fill="#2563eb"/>
+  <circle cx="310" cy="60" r="1.5" fill="#f59e0b"/>
+  <circle cx="320" cy="70" r="1" fill="#2563eb" opacity="0.5"/>
+</svg>

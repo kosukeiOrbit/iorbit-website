@@ -1,0 +1,36 @@
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="orbitalAnim" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="25" fill="none" stroke="rgba(37,99,235,0.1)" stroke-width="1"/>
+      <circle cx="30" cy="30" r="15" fill="none" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+      <circle cx="30" cy="30" r="8" fill="none" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#374151;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="350" height="200" fill="url(#darkGrad)"/>
+  <rect width="350" height="200" fill="url(#orbitalAnim)"/>
+
+  <!-- Stylized iOrbit -->
+  <g transform="translate(30, 50)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="300" fill="#ffffff" letter-spacing="8px">i O r b i t</text>
+  </g>
+
+  <!-- Underline -->
+  <line x1="30" y1="65" x2="280" y2="65" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Name -->
+  <text x="30" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">高橋 宏輔</text>
+  <text x="30" y="120" font-family="Arial, sans-serif" font-size="12" fill="#e5e7eb">Representative Director</text>
+
+  <!-- Contact -->
+  <text x="30" y="160" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b">info@iorbit.jp</text>
+
+  <!-- Orbital decoration -->
+  <circle cx="280" cy="100" r="40" fill="none" stroke="rgba(245,158,11,0.3)" stroke-width="2" stroke-dasharray="6,3"/>
+  <circle cx="280" cy="100" r="25" fill="none" stroke="rgba(37,99,235,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>

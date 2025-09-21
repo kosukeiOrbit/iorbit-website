@@ -1,0 +1,26 @@
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="orbitalRings" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="15" fill="none" stroke="rgba(37,99,235,0.2)" stroke-width="1"/>
+      <circle cx="20" cy="20" r="8" fill="none" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="350" height="200" fill="#f8fafc"/>
+  <rect width="350" height="200" fill="url(#orbitalRings)"/>
+
+  <!-- Company -->
+  <text x="30" y="40" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">株式会社iOrbit</text>
+  <text x="30" y="60" font-family="Arial, sans-serif" font-size="12" fill="#4b5563">〒581-0003 大阪府八尾市本町６－１４－１５</text>
+  <text x="30" y="80" font-family="Arial, sans-serif" font-size="12" fill="#2563eb">https://iorbit.jp</text>
+
+  <!-- Services -->
+  <text x="30" y="110" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1f2937">事業内容：</text>
+  <text x="30" y="130" font-family="Arial, sans-serif" font-size="10" fill="#4b5563">• Windowsアプリ開発</text>
+  <text x="30" y="145" font-family="Arial, sans-serif" font-size="10" fill="#4b5563">• WEBアプリ開発</text>
+  <text x="30" y="160" font-family="Arial, sans-serif" font-size="10" fill="#4b5563">• スマホアプリ開発</text>
+  <text x="30" y="175" font-family="Arial, sans-serif" font-size="10" fill="#4b5563">• AIトレードbot</text>
+
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="10" fill="#4b5563">• 技術コンサルティング</text>
+</svg>

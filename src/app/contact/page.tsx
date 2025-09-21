@@ -50,6 +50,8 @@ export default function ContactPage() {
     setSubmitError(null)
 
     try {
+      console.log('Sending form data:', data); // デバッグログ
+
       // Formspreeエンドポイントに送信
       const response = await fetch('https://formspree.io/f/mpwyaanj', {
         method: 'POST',
@@ -70,12 +72,23 @@ export default function ContactPage() {
         }),
       })
 
+      console.log('Response status:', response.status); // デバッグログ
+      console.log('Response headers:', response.headers); // デバッグログ
+
       if (response.ok) {
+        console.log('Form submitted successfully!'); // デバッグログ
         setIsSubmitted(true)
         reset()
       } else {
-        const errorData = await response.json()
-        throw new Error(errorData.error || '送信に失敗しました')
+        const responseText = await response.text()
+        console.error('Response error:', responseText); // デバッグログ
+        let errorData
+        try {
+          errorData = JSON.parse(responseText)
+        } catch {
+          errorData = { error: responseText }
+        }
+        throw new Error(errorData.error || `送信に失敗しました (Status: ${response.status})`)
       }
     } catch (error) {
       console.error('送信エラー:', error)
@@ -156,7 +169,12 @@ export default function ContactPage() {
         <div className="section-container">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                action="https://formspree.io/f/mpwyaanj"
+                method="POST"
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-secondary-900 mb-2">

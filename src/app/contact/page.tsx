@@ -36,6 +36,7 @@ const budgetRanges = [
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const {
     register,
@@ -46,15 +47,43 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
+    setSubmitError(null)
 
-    // フォーム送信のシミュレーション
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      console.log('Form data:', data)
-      setIsSubmitted(true)
-      reset()
+      // Formspreeエンドポイントに送信
+      const response = await fetch('https://formspree.io/f/mpwyaanj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company || '',
+          phone: data.phone || '',
+          subject: data.subject,
+          message: data.message,
+          projectType: data.projectType,
+          budget: data.budget || '',
+          _replyto: data.email, // Formspree用の返信先設定
+          _subject: `iOrbitお問い合わせ: ${data.subject}`, // メール件名
+        }),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        reset()
+      } else {
+        const errorData = await response.json()
+        throw new Error(errorData.error || '送信に失敗しました')
+      }
     } catch (error) {
       console.error('送信エラー:', error)
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'お問い合わせの送信中にエラーが発生しました。しばらく時間をおいて再度お試しください。'
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -69,10 +98,20 @@ export default function ContactPage() {
           <h1 className="heading-2 mb-6 text-green-400">送信完了</h1>
           <p className="text-lead mb-8 text-white/90">
             お問い合わせありがとうございます。<br />
-            2営業日以内にご連絡いたします。
+            info@iorbit.jp より2営業日以内にご連絡いたします。
           </p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-8">
+            <p className="text-white/80 text-sm">
+              📧 確認メールが送信されました<br />
+              💡 迷惑メールフォルダもご確認ください<br />
+              ⏰ 営業時間: 平日 9:00-18:00
+            </p>
+          </div>
           <button
-            onClick={() => setIsSubmitted(false)}
+            onClick={() => {
+              setIsSubmitted(false)
+              setSubmitError(null)
+            }}
             className="bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1"
           >
             新しいお問い合わせ
@@ -259,6 +298,33 @@ export default function ContactPage() {
                   )}
                 </div>
 
+                {/* ハニーポット（スパム対策） - 非表示 */}
+                <div style={{ display: 'none' }}>
+                  <label htmlFor="honeypot">このフィールドは空のままにしてください</label>
+                  <input
+                    type="text"
+                    id="honeypot"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                    <div className="flex items-start">
+                      <div className="text-red-400 text-xl mr-3">❌</div>
+                      <div>
+                        <h4 className="text-red-800 font-semibold mb-1">送信エラー</h4>
+                        <p className="text-red-700 text-sm">{submitError}</p>
+                        <p className="text-red-600 text-xs mt-2">
+                          問題が解決しない場合は、直接 <a href="mailto:info@iorbit.jp" className="underline font-medium">info@iorbit.jp</a> までメールでお問い合わせください。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between pt-6">
                   <p className="text-sm text-secondary-600">
                     <span className="text-red-500">*</span> は必須項目です
@@ -266,9 +332,19 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1 disabled:bg-secondary-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none min-w-[140px]"
+                    className="bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1 disabled:bg-secondary-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none min-w-[160px] flex items-center justify-center"
                   >
-                    {isSubmitting ? '送信中...' : '送信する'}
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        送信中...
+                      </>
+                    ) : (
+                      '送信する'
+                    )}
                   </button>
                 </div>
               </form>
@@ -286,14 +362,6 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <span className="text-primary-600 text-xl">📞</span>
-                    <div>
-                      <p className="font-medium text-secondary-900">電話</p>
-                      <p className="text-secondary-600">03-0000-0000</p>
-                      <p className="text-xs text-secondary-500">平日 9:00-18:00</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
                     <span className="text-primary-600 text-xl">📍</span>
                     <div>
                       <p className="font-medium text-secondary-900">所在地</p>
@@ -306,7 +374,6 @@ export default function ContactPage() {
               <div className="card-premium">
                 <h3 className="text-xl font-bold mb-4 text-secondary-900">対応時間</h3>
                 <div className="space-y-2 text-secondary-600">
-                  <p>📞 電話: 平日 9:00-18:00</p>
                   <p>📧 メール: 24時間受付</p>
                   <p className="text-sm text-secondary-500 mt-4">
                     メールでのお問い合わせは2営業日以内にご返信いたします。

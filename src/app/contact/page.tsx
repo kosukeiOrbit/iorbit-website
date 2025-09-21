@@ -116,7 +116,8 @@ export default function ContactPage() {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-8">
             <p className="text-white/80 text-sm">
               📧 確認メールが送信されました<br />
-              💡 迷惑メールフォルダもご確認ください<br />
+              💡 迷惑メール・スパムフォルダもご確認ください<br />
+              🔍 送信者: noreply@formspree.io からのメールです<br />
               ⏰ 営業時間: 平日 9:00-18:00
             </p>
           </div>

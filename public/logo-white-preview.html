@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOrbit White Logo Preview</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1f2937;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .logo-box {
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .dark-bg {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            border: 2px solid #4b5563;
+        }
+        .blue-bg {
+            background: linear-gradient(135deg, #0EA5E9, #3B82F6);
+        }
+        .logo {
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .label {
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>iOrbit ホワイトロゴ</h1>
+        <p class="subtitle">暗い背景での使用に最適化されたバージョン</p>
+
+        <div class="logo-showcase">
+            <div class="logo-box dark-bg">
+                <img src="logo-white.svg" alt="White Logo on Dark" class="logo" width="180" height="60">
+                <div class="label">ダークグレー背景</div>
+            </div>
+
+            <div class="logo-box blue-bg">
+                <img src="logo-white.svg" alt="White Logo on Blue" class="logo" width="180" height="60">
+                <div class="label">ブルー背景</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+            <h3>使用例</h3>
+            <p>• 名刺の青ヘッダー部分<br>
+            • プレゼンテーション資料<br>
+            • 暗い背景のウェブサイト<br>
+            • 印刷物の暗色背景</p>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <a href="logo-white.svg" download style="display: inline-block; background: #3B82F6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+                ダウンロード (SVG)
+            </a>
+        </div>
+    </div>
+</body>
+</html>

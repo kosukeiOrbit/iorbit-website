@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ScrollReveal from '@/components/ScrollReveal'
 
 const services = [
   {
@@ -82,7 +83,7 @@ export default function HomePage() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6">
               技術で未来を
-              <span className="text-primary-400">創造</span>する
+              <span className="gradient-text">創造</span>する
             </h1>
 
             <p className="text-lg text-secondary-400 leading-relaxed mb-10 max-w-2xl mx-auto">
@@ -122,33 +123,36 @@ export default function HomePage() {
       {/* Services */}
       <section className="py-20 sm:py-28">
         <div className="section-container">
-          <div className="max-w-2xl mb-16">
-            <p className="text-primary-600 font-medium text-sm mb-3">Services</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">事業内容</h2>
-            <p className="text-lg text-secondary-500">
-              最先端技術と豊富な経験を活かして、お客様のビジネス変革を支援する包括的なソリューションを提供します。
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="max-w-2xl mb-16">
+              <p className="text-primary-600 font-medium text-sm mb-3">Services</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">事業内容</h2>
+              <p className="text-lg text-secondary-500">
+                最先端技術と豊富な経験を活かして、お客様のビジネス変革を支援する包括的なソリューションを提供します。
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <Link
-                key={index}
-                href="/services"
-                className="group p-6 rounded-xl border border-secondary-200 hover:border-primary-200 bg-white hover:bg-primary-50/30 transition-all duration-200"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">{service.title}</h3>
-                <p className="text-sm text-secondary-500 leading-relaxed mb-4">{service.description}</p>
-                <span className="inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
-                  詳しく見る
-                  <svg className="ml-1 w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </span>
-              </Link>
+              <ScrollReveal key={index} delay={index * 100}>
+                <Link
+                  href="/services"
+                  className="group block p-6 rounded-xl border border-secondary-200 hover:border-primary-200 bg-white hover:bg-primary-50/30 transition-all duration-200 hover:-translate-y-1"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2">{service.title}</h3>
+                  <p className="text-sm text-secondary-500 leading-relaxed mb-4">{service.description}</p>
+                  <span className="inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
+                    詳しく見る
+                    <svg className="ml-1 w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </span>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -157,23 +161,27 @@ export default function HomePage() {
       {/* Strengths */}
       <section className="py-20 sm:py-28 bg-secondary-50/50">
         <div className="section-container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <p className="text-primary-600 font-medium text-sm mb-3">Why iOrbit</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">選ばれる理由</h2>
-            <p className="text-lg text-secondary-500">
-              業界をリードする技術力と顧客満足度で、お客様のビジネス成功をサポートします。
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <p className="text-primary-600 font-medium text-sm mb-3">Why iOrbit</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">選ばれる理由</h2>
+              <p className="text-lg text-secondary-500">
+                業界をリードする技術力と顧客満足度で、お客様のビジネス成功をサポートします。
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-8">
             {strengths.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4">
-                  {item.icon}
+              <ScrollReveal key={index} delay={index * 100}>
+                <div className="text-center">
+                  <div className="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-secondary-500 leading-relaxed">{item.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-secondary-500 leading-relaxed">{item.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -184,6 +192,7 @@ export default function HomePage() {
         <div className="section-container">
           <div className="max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <ScrollReveal>
               <div>
                 <p className="text-primary-600 font-medium text-sm mb-3">Future Vision</p>
                 <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-6">次世代への挑戦</h2>
@@ -209,6 +218,7 @@ export default function HomePage() {
                   </svg>
                 </Link>
               </div>
+              </ScrollReveal>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -233,13 +243,15 @@ export default function HomePage() {
                     </svg>
                   ), title: '革新技術', desc: '最先端ソリューション' },
                 ].map((card, index) => (
-                  <div key={index} className={`p-5 rounded-xl border border-secondary-200 bg-white ${index % 2 === 1 ? 'mt-6' : ''}`}>
+                  <ScrollReveal key={index} delay={index * 100}>
+                  <div className={`p-5 rounded-xl border border-secondary-200 bg-white hover:border-primary-200 hover:-translate-y-1 transition-all duration-200 ${index % 2 === 1 ? 'mt-6' : ''}`}>
                     <div className="w-9 h-9 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mb-3">
                       {card.icon}
                     </div>
                     <h4 className="font-semibold text-secondary-900 text-sm mb-1">{card.title}</h4>
                     <p className="text-xs text-secondary-500">{card.desc}</p>
                   </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
@@ -252,6 +264,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary-950/30 via-transparent to-transparent"></div>
 
         <div className="section-container relative z-10">
+          <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               プロジェクトのご相談はお気軽に
@@ -299,6 +312,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

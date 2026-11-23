@@ -401,6 +401,22 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              <div className="rounded-xl border border-secondary-200 bg-white overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.5!2d135.6009!3d34.6267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000dc4e7b6a1a1d%3A0x0!2z5aSn6Ziq5bqc5YWr5bC-5biC5pys55S677yW4oCS77yR77yU4oCS77yR77yV!5e0!3m2!1sja!2sjp!4v1700000000000"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="株式会社iOrbit 所在地"
+                ></iframe>
+                <div className="px-4 py-3">
+                  <p className="text-xs text-secondary-500">大阪府八尾市本町６－１４－１５</p>
+                </div>
+              </div>
+
               <div className="p-6 rounded-xl border border-secondary-200 bg-white">
                 <h3 className="text-lg font-semibold text-secondary-900 mb-4">対応時間</h3>
                 <div className="flex items-start">

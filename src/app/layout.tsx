@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://iorbit.jp'),
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'ja_JP',

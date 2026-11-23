@@ -46,22 +46,39 @@ const values = [
   {
     title: '技術への情熱',
     description: '最新技術を追求し、常に学び続ける姿勢を大切にします',
-    icon: '🔥',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
+      </svg>
+    ),
   },
   {
     title: '顧客第一',
     description: 'お客様の成功が私たちの成功。真のパートナーとしてサポートします',
-    icon: '🤝',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+      </svg>
+    ),
   },
   {
     title: '品質重視',
     description: '妥協のない品質で、長期的に価値を提供し続けます',
-    icon: '⭐',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+      </svg>
+    ),
   },
   {
     title: '社会貢献',
     description: '技術を通じて社会課題の解決に貢献します',
-    icon: '🌍',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+      </svg>
+    ),
   },
 ]
 
@@ -106,187 +123,82 @@ const certifications = [
   '情報処理安全確保支援士',
 ]
 
+const companyRows = [
+  { label: '会社名', value: companyInfo.name },
+  { label: '設立', value: companyInfo.established },
+  { label: '資本金', value: companyInfo.capital },
+  { label: '従業員数', value: companyInfo.employees },
+  { label: '所在地', value: companyInfo.address },
+  { label: 'メール', value: companyInfo.email },
+  { label: 'ウェブサイト', value: companyInfo.website },
+  { label: '事業内容', value: companyInfo.business },
+]
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-950 via-primary-900 to-secondary-900">
-        <div className="absolute inset-0 gradient-mesh opacity-30"></div>
-
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent-500/20 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        </div>
-
-        <div className="section-container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8 animate-fade-in">
-              <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-primary-200 font-medium text-sm tracking-wide uppercase mb-6">
-                About iOrbit
-              </span>
-            </div>
-
-            <h1 className="heading-display mb-8 animate-slide-up text-white">
-              会社概要
-            </h1>
-
-            <p className="text-lead mb-12 animate-slide-up text-white/90 max-w-3xl mx-auto" style={{animationDelay: '0.2s'}}>
-              技術で未来を創造し、お客様と社会に価値を提供する
-              <br className="hidden md:block" />
-              次世代システム開発会社として革新を続けています
+      {/* Hero */}
+      <section className="py-16 sm:py-24 border-b border-secondary-100">
+        <div className="section-container">
+          <div className="max-w-3xl">
+            <p className="text-primary-600 font-medium text-sm mb-3">About</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-secondary-900 tracking-tight mb-6">会社概要</h1>
+            <p className="text-lg text-secondary-500">
+              技術で未来を創造し、お客様と社会に価値を提供する次世代システム開発会社です。
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-white to-secondary-50">
+      {/* Company Info + Representative */}
+      <section className="py-20 sm:py-28">
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Company Info */}
             <div>
-              <div className="mb-8">
-                <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">
-                  Company Information
-                </span>
-                <h2 className="heading-2 mb-6">会社情報</h2>
-              </div>
+              <p className="text-primary-600 font-medium text-sm mb-3">Company Information</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-8">会社情報</h2>
 
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">🏢</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">会社名</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.name}</p>
+              <div className="border border-secondary-200 rounded-xl divide-y divide-secondary-200">
+                {companyRows.map((row, index) => (
+                  <div key={index} className="flex px-6 py-4">
+                    <div className="w-28 flex-shrink-0 text-sm font-medium text-secondary-500">{row.label}</div>
+                    <div className="text-secondary-900 text-sm">{row.value}</div>
                   </div>
-
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">📅</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">設立年月</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.established}</p>
-                  </div>
-
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">💰</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">資本金</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.capital}</p>
-                  </div>
-
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-accent-500 to-primary-500 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">👥</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">従業員数</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.employees}</p>
-                  </div>
-                </div>
-
-                <div className="card-premium">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mr-4">
-                      <span className="text-white text-xl">📍</span>
-                    </div>
-                    <h3 className="font-bold text-secondary-900 text-lg">所在地</h3>
-                  </div>
-                  <p className="text-secondary-700 font-medium text-lg">{companyInfo.address}</p>
-                </div>
-
-                <div className="grid grid-cols-1 gap-6">
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">📞</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">お問い合わせ</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.phone}</p>
-                  </div>
-
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-accent-500 to-primary-500 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">✉️</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">メールアドレス</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.email}</p>
-                  </div>
-
-                  <div className="card-premium">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
-                        <span className="text-white text-lg">🌐</span>
-                      </div>
-                      <h3 className="font-bold text-secondary-900">ウェブサイト</h3>
-                    </div>
-                    <p className="text-secondary-700 font-medium">{companyInfo.website}</p>
-                  </div>
-                </div>
-
-                <div className="card-premium">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mr-4">
-                      <span className="text-white text-xl">🚀</span>
-                    </div>
-                    <h3 className="font-bold text-secondary-900 text-lg">事業内容</h3>
-                  </div>
-                  <p className="text-secondary-700 font-medium text-lg">{companyInfo.business}</p>
-                </div>
+                ))}
               </div>
             </div>
 
+            {/* Representative */}
             <div>
-              <div className="mb-8">
-                <span className="inline-block px-4 py-2 bg-accent-100 text-accent-700 rounded-full text-sm font-semibold mb-4">
-                  Representative
-                </span>
-                <h2 className="heading-2 mb-6">代表者紹介</h2>
-              </div>
+              <p className="text-primary-600 font-medium text-sm mb-3">Representative</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-8">代表者紹介</h2>
 
-              <div className="card-premium relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-accent-50/50"></div>
-                <div className="relative z-10">
-                  <div className="text-center mb-8">
-                    <div className="relative inline-block">
-                      <div className="w-40 h-40 bg-gradient-to-br from-primary-500 via-primary-600 to-accent-500 rounded-full mx-auto mb-6 flex items-center justify-center shadow-glow">
-                        <span className="text-white text-5xl font-bold">高</span>
-                      </div>
-                      <div className="absolute inset-0 w-40 h-40 bg-gradient-to-br from-primary-400/20 to-accent-400/20 rounded-full mx-auto animate-pulse-glow"></div>
-                    </div>
-                    <h3 className="text-3xl font-bold text-secondary-900 mb-2">
-                      {representative.name}
-                    </h3>
+              <div className="p-6 rounded-xl border border-secondary-200 bg-white">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-2xl font-bold">高</span>
                   </div>
+                  <h3 className="text-xl font-bold text-secondary-900">{representative.name}</h3>
+                </div>
 
-                  <div className="space-y-6 text-secondary-700 leading-relaxed text-lg">
-                    {representative.profile.trim().split('\n\n').map((paragraph, index) => (
-                      <p key={index}>{paragraph.trim()}</p>
+                <div className="space-y-4 text-sm text-secondary-600 leading-relaxed">
+                  {representative.profile.trim().split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph.trim()}</p>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-secondary-100">
+                  <h4 className="text-sm font-semibold text-secondary-900 mb-3">専門領域</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {representative.expertise.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="bg-primary-50 text-primary-700 px-3 py-1 rounded-md text-sm font-medium"
+                      >
+                        {skill}
+                      </span>
                     ))}
-                  </div>
-
-                  <div className="mt-8">
-                    <h4 className="font-bold text-secondary-900 mb-4 text-xl">専門領域</h4>
-                    <div className="flex flex-wrap gap-3">
-                      {representative.expertise.map((skill, index) => (
-                        <span
-                          key={index}
-                          className="bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-2 rounded-xl text-sm font-semibold shadow-elegant"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
@@ -295,71 +207,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-r from-secondary-900 via-primary-800 to-secondary-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-accent-900/20"></div>
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400"></div>
-
-        <div className="section-container relative z-10">
-          <div className="text-center mb-20">
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-primary-200 text-sm font-semibold mb-4">
-              Our Values
-            </span>
-            <h2 className="heading-2 mb-6 text-white">企業理念・価値観</h2>
-            <p className="text-lead text-white/90 max-w-3xl mx-auto">
-              革新的なテクノロジーで未来を創造し、
-              <br className="hidden md:block" />
-              持続可能な価値を社会に提供するための指針
+      {/* Values */}
+      <section className="py-20 sm:py-28 bg-secondary-50/50">
+        <div className="section-container">
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <p className="text-primary-600 font-medium text-sm mb-3">Our Values</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">企業理念・価値観</h2>
+            <p className="text-lg text-secondary-500">
+              革新的なテクノロジーで未来を創造し、持続可能な価値を社会に提供するための指針
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="text-center group">
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-3xl text-white mb-6 mx-auto shadow-glow group-hover:shadow-glow-lg transition-all duration-500 group-hover:scale-110">
-                    {value.icon}
-                  </div>
-                  <div className="absolute inset-0 w-20 h-20 bg-gradient-to-br from-primary-400/20 to-accent-400/20 rounded-2xl mx-auto animate-pulse-glow"></div>
+              <div key={index} className="text-center p-6 rounded-xl border border-secondary-200 bg-white">
+                <div className="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4">
+                  {value.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary-300 transition-colors duration-300">
-                  {value.title}
-                </h3>
-                <p className="text-white/80 text-lg leading-relaxed">{value.description}</p>
+                <h3 className="text-lg font-semibold text-secondary-900 mb-2">{value.title}</h3>
+                <p className="text-sm text-secondary-500 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      {/* Timeline */}
+      <section className="py-20 sm:py-28">
         <div className="section-container">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="heading-2 mb-4">会社の歩み</h2>
-              <p className="text-lead">これまでの主要な成長マイルストーン</p>
+              <p className="text-primary-600 font-medium text-sm mb-3">History</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">会社の歩み</h2>
+              <p className="text-lg text-secondary-500">これまでの主要な成長マイルストーン</p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-0">
               {milestones.map((milestone, index) => (
-                <div key={index} className="flex items-start space-x-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-4 h-4 bg-primary-600 rounded-full mt-2"></div>
+                <div key={index} className="flex gap-6">
+                  <div className="flex flex-col items-center">
+                    <div className="w-3 h-3 bg-primary-600 rounded-full mt-1.5 flex-shrink-0"></div>
                     {index < milestones.length - 1 && (
-                      <div className="w-0.5 h-16 bg-primary-200 mx-auto mt-2"></div>
+                      <div className="w-px flex-1 bg-secondary-200 my-1"></div>
                     )}
                   </div>
-                  <div className="flex-grow">
-                    <div className="bg-secondary-50 p-6 rounded-lg">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                        <h3 className="text-xl font-bold text-secondary-900">
-                          {milestone.event}
-                        </h3>
-                        <span className="text-primary-600 font-medium">
-                          {milestone.year}
-                        </span>
-                      </div>
-                      <p className="text-secondary-600">{milestone.description}</p>
-                    </div>
+                  <div className="pb-8">
+                    <span className="text-xs font-medium text-primary-600">{milestone.year}</span>
+                    <h3 className="text-base font-semibold text-secondary-900 mt-0.5">{milestone.event}</h3>
+                    <p className="text-sm text-secondary-500 mt-1">{milestone.description}</p>
                   </div>
                 </div>
               ))}
@@ -368,48 +263,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-secondary-50">
+      {/* Certifications */}
+      <section className="py-20 sm:py-28 bg-secondary-50/50">
         <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="heading-2 mb-8">保有資格・認定</h2>
-            <p className="text-lead mb-8">
-              チームメンバーが保有する専門資格・認定
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              {certifications.map((cert, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg shadow-md text-center"
-                >
-                  <span className="text-secondary-900 font-medium">{cert}</span>
-                </div>
-              ))}
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-primary-600 font-medium text-sm mb-3">Certifications</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 tracking-tight mb-4">保有資格・認定</h2>
+              <p className="text-lg text-secondary-500">チームメンバーが保有する専門資格・認定</p>
             </div>
+
+            <ul className="space-y-3">
+              {certifications.map((cert, index) => (
+                <li key={index} className="flex items-center px-5 py-3.5 rounded-lg border border-secondary-200 bg-white">
+                  <svg className="w-4 h-4 text-accent-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span className="text-sm text-secondary-900">{cert}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-primary-600 text-white">
+      {/* CTA */}
+      <section className="py-20 sm:py-28 bg-primary-600">
         <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               一緒にプロジェクトを成功させましょう
             </h2>
-            <p className="text-xl mb-8 text-primary-100">
-              お客様のビジネス課題解決のパートナーとして、
-              技術力と情熱でサポートいたします。
-              まずはお気軽にご相談ください。
+            <p className="text-lg text-primary-100 mb-10">
+              お客様のビジネス課題解決のパートナーとして、技術力と情熱でサポートいたします。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-primary-600 hover:bg-primary-50 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+                className="inline-flex items-center justify-center bg-white text-primary-600 hover:bg-primary-50 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
               >
                 お問い合わせ
               </Link>
               <Link
                 href="/services"
-                className="border border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+                className="inline-flex items-center justify-center border border-white/40 text-white hover:bg-white/10 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
               >
                 サービス一覧
               </Link>

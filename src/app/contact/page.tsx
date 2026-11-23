@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import type { Metadata } from 'next'
 import { useForm } from 'react-hook-form'
 
 interface ContactFormData {
@@ -50,9 +49,8 @@ export default function ContactPage() {
     setSubmitError(null)
 
     try {
-      console.log('Sending form data:', data); // デバッグログ
+      console.log('Sending form data:', data);
 
-      // Formspreeエンドポイントに送信
       const response = await fetch('https://formspree.io/f/mpwyaanj', {
         method: 'POST',
         headers: {
@@ -67,21 +65,21 @@ export default function ContactPage() {
           message: data.message,
           projectType: data.projectType,
           budget: data.budget || '',
-          _replyto: data.email, // Formspree用の返信先設定
-          _subject: `iOrbitお問い合わせ: ${data.subject}`, // メール件名
+          _replyto: data.email,
+          _subject: `iOrbitお問い合わせ: ${data.subject}`,
         }),
       })
 
-      console.log('Response status:', response.status); // デバッグログ
-      console.log('Response headers:', response.headers); // デバッグログ
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
 
       if (response.ok) {
-        console.log('Form submitted successfully!'); // デバッグログ
+        console.log('Form submitted successfully!');
         setIsSubmitted(true)
         reset()
       } else {
         const responseText = await response.text()
-        console.error('Response error:', responseText); // デバッグログ
+        console.error('Response error:', responseText);
         let errorData
         try {
           errorData = JSON.parse(responseText)
@@ -104,29 +102,52 @@ export default function ContactPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-secondary-950 via-primary-900 to-secondary-900 flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 gradient-mesh opacity-30"></div>
-        <div className="max-w-2xl mx-auto text-center p-8 relative z-10">
-          <div className="text-6xl mb-6">✅</div>
-          <h1 className="heading-2 mb-6 text-green-400">送信完了</h1>
-          <p className="text-lead mb-8 text-white/90">
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="max-w-md mx-auto text-center px-4">
+          <div className="w-14 h-14 rounded-full bg-accent-50 text-accent-600 flex items-center justify-center mx-auto mb-6">
+            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-bold text-secondary-900 mb-3">送信完了</h1>
+          <p className="text-secondary-500 mb-8">
             お問い合わせありがとうございます。<br />
             info@iorbit.jp より2営業日以内にご連絡いたします。
           </p>
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-8">
-            <p className="text-white/80 text-sm">
-              📧 確認メールが送信されました<br />
-              💡 迷惑メール・スパムフォルダもご確認ください<br />
-              🔍 送信者: noreply@formspree.io からのメールです<br />
-              ⏰ 営業時間: 平日 9:00-18:00
-            </p>
+          <div className="rounded-xl border border-secondary-200 bg-secondary-50 p-5 mb-8 text-left">
+            <ul className="space-y-2.5 text-sm text-secondary-600">
+              <li className="flex items-start">
+                <svg className="w-4 h-4 mr-2 mt-0.5 text-secondary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+                確認メールが送信されました
+              </li>
+              <li className="flex items-start">
+                <svg className="w-4 h-4 mr-2 mt-0.5 text-secondary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                迷惑メール・スパムフォルダもご確認ください
+              </li>
+              <li className="flex items-start">
+                <svg className="w-4 h-4 mr-2 mt-0.5 text-secondary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+                送信者: noreply@formspree.io
+              </li>
+              <li className="flex items-start">
+                <svg className="w-4 h-4 mr-2 mt-0.5 text-secondary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                営業時間: 平日 9:00-18:00
+              </li>
+            </ul>
           </div>
           <button
             onClick={() => {
               setIsSubmitted(false)
               setSubmitError(null)
             }}
-            className="bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1"
+            className="btn-primary"
           >
             新しいお問い合わせ
           </button>
@@ -137,36 +158,19 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-950 via-primary-900 to-secondary-900">
-        <div className="absolute inset-0 gradient-mesh opacity-30"></div>
-
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent-500/20 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        </div>
-
-        <div className="section-container relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8 animate-fade-in">
-              <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-primary-200 font-medium text-sm tracking-wide uppercase mb-6">
-                Contact Us
-              </span>
-            </div>
-
-            <h1 className="heading-display mb-8 animate-slide-up text-white">
-              お問い合わせ
-            </h1>
-
-            <p className="text-lead mb-12 animate-slide-up text-white/90 max-w-4xl mx-auto" style={{animationDelay: '0.2s'}}>
-              プロジェクトのご相談、技術的なご質問など、
-              <br className="hidden md:block" />
-              お気軽にお問い合わせください
+      <section className="py-16 sm:py-24 border-b border-secondary-100">
+        <div className="section-container">
+          <div className="max-w-3xl">
+            <p className="text-primary-600 font-medium text-sm mb-3">Contact</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-secondary-900 tracking-tight mb-6">お問い合わせ</h1>
+            <p className="text-lg text-secondary-500">
+              プロジェクトのご相談、技術的なご質問など、お気軽にお問い合わせください。
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16 sm:py-20">
         <div className="section-container">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
@@ -330,13 +334,15 @@ export default function ContactPage() {
                 </div>
 
                 {submitError && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                  <div className="rounded-lg border border-red-200 bg-red-50 p-4">
                     <div className="flex items-start">
-                      <div className="text-red-400 text-xl mr-3">❌</div>
+                      <svg className="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                      </svg>
                       <div>
-                        <h4 className="text-red-800 font-semibold mb-1">送信エラー</h4>
-                        <p className="text-red-700 text-sm">{submitError}</p>
-                        <p className="text-red-600 text-xs mt-2">
+                        <h4 className="text-sm font-semibold text-red-800 mb-1">送信エラー</h4>
+                        <p className="text-sm text-red-700">{submitError}</p>
+                        <p className="text-xs text-red-600 mt-2">
                           問題が解決しない場合は、直接 <a href="mailto:info@iorbit.jp" className="underline font-medium">info@iorbit.jp</a> までメールでお問い合わせください。
                         </p>
                       </div>
@@ -344,18 +350,18 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                <div className="flex items-center justify-between pt-6">
-                  <p className="text-sm text-secondary-600">
+                <div className="flex items-center justify-between pt-4">
+                  <p className="text-sm text-secondary-500">
                     <span className="text-red-500">*</span> は必須項目です
                   </p>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1 disabled:bg-secondary-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none min-w-[160px] flex items-center justify-center"
+                    className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed min-w-[140px] flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
@@ -369,51 +375,61 @@ export default function ContactPage() {
               </form>
             </div>
 
-            <div className="space-y-8">
-              <div className="card-premium">
-                <h3 className="heading-3 mb-6">お問い合わせ先</h3>
+            <div className="space-y-6">
+              <div className="p-6 rounded-xl border border-secondary-200 bg-white">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-4">お問い合わせ先</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-primary-600 text-xl">📧</span>
+                  <div className="flex items-start">
+                    <svg className="w-5 h-5 text-secondary-400 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
                     <div>
-                      <p className="font-medium text-secondary-900">メール</p>
-                      <p className="text-secondary-600">info@iorbit.jp</p>
+                      <p className="text-sm font-medium text-secondary-900">メール</p>
+                      <p className="text-sm text-secondary-500">info@iorbit.jp</p>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <span className="text-primary-600 text-xl">📍</span>
+                  <div className="flex items-start">
+                    <svg className="w-5 h-5 text-secondary-400 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
                     <div>
-                      <p className="font-medium text-secondary-900">所在地</p>
-                      <p className="text-secondary-600">〒581-0003<br />大阪府八尾市本町６－１４－１５</p>
+                      <p className="text-sm font-medium text-secondary-900">所在地</p>
+                      <p className="text-sm text-secondary-500">〒581-0003<br />大阪府八尾市本町６－１４－１５</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="card-premium">
-                <h3 className="text-xl font-bold mb-4 text-secondary-900">対応時間</h3>
-                <div className="space-y-2 text-secondary-600">
-                  <p>📧 メール: 24時間受付</p>
-                  <p className="text-sm text-secondary-500 mt-4">
-                    メールでのお問い合わせは2営業日以内にご返信いたします。
-                  </p>
+              <div className="p-6 rounded-xl border border-secondary-200 bg-white">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-4">対応時間</h3>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 text-secondary-400 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <p className="text-sm text-secondary-600">メール: 24時間受付</p>
+                    <p className="text-xs text-secondary-400 mt-2">
+                      メールでのお問い合わせは2営業日以内にご返信いたします。
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="card-premium">
-                <h3 className="text-xl font-bold mb-4 text-secondary-900">よくあるご質問</h3>
+              <div className="p-6 rounded-xl border border-secondary-200 bg-white">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-4">よくあるご質問</h3>
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-medium text-secondary-900 mb-1">Q. 見積もりは無料ですか？</p>
-                    <p className="text-secondary-600">A. はい、お見積もりは無料で承っております。</p>
+                    <p className="text-secondary-500">A. はい、お見積もりは無料で承っております。</p>
                   </div>
                   <div>
                     <p className="font-medium text-secondary-900 mb-1">Q. 開発期間はどのくらいですか？</p>
-                    <p className="text-secondary-600">A. プロジェクトの規模により異なりますが、詳細をお聞かせいただければお答えいたします。</p>
+                    <p className="text-secondary-500">A. プロジェクトの規模により異なりますが、詳細をお聞かせいただければお答えいたします。</p>
                   </div>
                   <div>
                     <p className="font-medium text-secondary-900 mb-1">Q. 保守・サポートはありますか？</p>
-                    <p className="text-secondary-600">A. はい、開発完了後の保守・サポートも承っております。</p>
+                    <p className="text-secondary-500">A. はい、開発完了後の保守・サポートも承っております。</p>
                   </div>
                 </div>
               </div>
